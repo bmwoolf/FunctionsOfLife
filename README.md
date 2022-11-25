@@ -14,6 +14,7 @@ Consume
 Digest  
   - breakDown  
   - moveToNeededLocation  
-  - useEnergy  
+  - useEnergy 
+ 
 Replicate  
 Defend  
