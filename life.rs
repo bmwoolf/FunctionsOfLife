@@ -8,10 +8,17 @@ struct Energy {
     // intensity of the energy- measured in amplitude
     amplitude: f32,
     // weighted energy to trigger activation energy threshold
-    energyWeight: f32,
+    velocity: f32,
+    frequency: f32,
+    wavelength: f32
 
-    // intensity of the energy = amplitude / period
-    // higher energy waves will be more intense, with shorter periods, but higher amplitudes.
+    // ***final number will be a combination of amplitude and velocity
+
+    // unit of time (period) = seconds
+    // frequency = 1 / seconds (measured in time units (seconds), frequency is measured in hertz (Hz))
+    // wavelength - distance between two consecutive crests or troughs (measured in nano meters (nm))
+
+    // velocity (intensity) = frequency * wavelength
 }
 
 /// @notice A single memory
