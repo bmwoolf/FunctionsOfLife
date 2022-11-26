@@ -1,6 +1,6 @@
 use bytes::Bytes;
 
-// how do we represent energy that triggers action?
+/// @notice Represent energy that triggers action
 struct Energy {
     // wavelength of the energy
     wavelength: f32,
@@ -10,6 +10,7 @@ struct Energy {
     // how can we measure the amount of energy in bytes?
 }
 
+/// @notice A single memory
 struct Memory {
     // activation threshold
     activationThreshold: f64,
@@ -19,6 +20,7 @@ struct Memory {
     size: u64,
 }
 
+/// @notice A Sense- should this be broken up in to the different senses? But each sense is just a wavelength
 struct Sense {
     // linked list of memories- or a graph? should be a neural network but this is mvp
     memories: Vec<Memory>, // basically an array of objects
