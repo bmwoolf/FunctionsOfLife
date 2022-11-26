@@ -1,4 +1,10 @@
-struct Sense {}
+struct Sense {
+    // linked list of memories- or a graph?
+
+    // size of brain used for memories
+    amountOfMemory: u32,
+}
+
 impl Sense {
     fn sense(&self) -> bool {
         true
