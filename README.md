@@ -6,25 +6,24 @@ Root functions of all lifeforms
 
 Normally breeding can only occur between entities cross-species. But I think all entities that reproduce, have the exact same root functions.
 
-Outline is:  
-SenseResources
+Outline is:
 
-- sense
-- filter
-- store
-- access
-
-  Catch  
-  Consume  
-  Digest
-
-- breakDown
-- transportEnergy
-- useEnergy
-
-  Replicate  
-  Defend  
-  Repair
+1. Energy
+2. Memory
+3. Sense
+   a. sense
+   b. filter
+   c. store
+   d. access
+4. Catch
+5. Consume
+6. Digest
+   a. breakDown
+   b. transportEnergy
+   c. useEnergy
+7. Replicate
+8. Defend
+9. Repair
 
 ## Commits
 
