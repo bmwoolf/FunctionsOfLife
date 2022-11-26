@@ -1,3 +1,11 @@
+// how do we represent energy that is used in the body?
+struct Energy {
+    // wavelength of the energy
+    wavelength: f32,
+    // intensity of the energy
+    vibrationIntensity: f32,
+}
+
 struct Memory {
     // activation threshold
     threshold: f64,
@@ -37,6 +45,7 @@ impl Catch {
 struct Consume {}
 impl Consume {
     fn consume(&self) -> bool {
+        // calls catch, then chew, then swallow, then breakdown, then transportEnergy, then useEnergy, then storeEnergy
         true
     }
 }
@@ -50,6 +59,9 @@ impl Digest {
         true
     }
     fn useEnergy(&self) -> bool {
+        true
+    }
+    fn storeEnergy(&self) -> bool {
         true
     }
 }
