@@ -9,6 +9,10 @@ Normally breeding can only occur between entities cross-species. But I think all
 
 Outline is:  
 SenseResources  
+  - sense  
+  - filter  
+  - store  
+  - access  
 Catch  
 Consume  
 Digest  
