@@ -8,7 +8,7 @@ struct Energy {
 
 struct Memory {
     // activation threshold
-    threshold: f64,
+    activationThreshold: f64,
     // voltage
     voltage: f64,
 }
