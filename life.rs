@@ -1,6 +1,8 @@
 struct Memory {
     // activation threshold
     threshold: f64,
+    // voltage
+    voltage: f64,
 }
 
 struct Sense {
