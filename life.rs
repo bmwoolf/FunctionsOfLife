@@ -1,9 +1,13 @@
-// how do we represent energy that is used in the body?
+use bytes::Bytes;
+
+// how do we represent energy that triggers action?
 struct Energy {
     // wavelength of the energy
     wavelength: f32,
     // intensity of the energy
     vibrationIntensity: f32,
+
+    // how can we measure the amount of energy in bytes?
 }
 
 struct Memory {
@@ -11,6 +15,8 @@ struct Memory {
     activationThreshold: f64,
     // voltage
     voltage: f64,
+    // size of memory (in bytes)
+    size: u64,
 }
 
 struct Sense {
@@ -18,6 +24,8 @@ struct Sense {
     memories: Vec<Memory>, // basically an array of objects
     // size of brain used for memories
     amountOfMemory: u32,
+    // total size of memories in bytes
+    totalMemorySize: u32,
 }
 
 impl Sense {

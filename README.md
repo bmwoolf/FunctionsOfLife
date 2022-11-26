@@ -23,7 +23,8 @@ SenseResources
 - useEnergy
 
   Replicate  
-  Defend
+  Defend  
+  Repair
 
 ## Commits
 
