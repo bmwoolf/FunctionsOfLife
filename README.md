@@ -24,3 +24,12 @@ SenseResources
 
   Replicate  
   Defend
+
+## Commits
+
+- ♻️ refactor
+- 📝docs
+- ✨feat
+- 👷‍♂️edit
+- 🎨cleanup
+- ⚡️gas optimize
