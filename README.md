@@ -1,4 +1,4 @@
-# functionsOfLife
+# FunctionsOfLife
 Root functions of all lifeforms 
 
 ![image](https://user-images.githubusercontent.com/42151239/204063564-54cd5169-b398-46fb-9834-22870cbb25cc.png)
