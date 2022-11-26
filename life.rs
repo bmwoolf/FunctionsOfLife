@@ -1,6 +1,11 @@
-struct Sense {
-    // linked list of memories- or a graph?
+struct Memory {
+    // activation threshold
+    threshold: f64,
+}
 
+struct Sense {
+    // linked list of memories- or a graph? should be a neural network but this is mvp
+    memories: Vec<Memory>, // basically an array of objects
     // size of brain used for memories
     amountOfMemory: u32,
 }
@@ -71,6 +76,13 @@ impl Move {
 struct Communicate {}
 impl Communicate {
     fn communicate(&self) -> bool {
+        true
+    }
+}
+
+struct Repair {}
+impl Repair {
+    fn repair(&self) -> bool {
         true
     }
 }
