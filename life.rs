@@ -116,7 +116,10 @@ struct Life {
 fn main() {
     println!("in main");
     let life = Life {
-        sense: Sense {},
+        sense: Sense {
+            memories: Vec::new(),
+            amountOfMemory: 0,
+        },
         catch: Catch {},
         consume: Consume {},
         digest: Digest {},
