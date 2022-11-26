@@ -1,13 +1,17 @@
 use bytes::Bytes;
 
 /// @notice Represent energy that triggers action
+// how can we measure the amount of energy in bytes?
 struct Energy {
-    // wavelength of the energy
-    wavelength: f32,
-    // intensity of the energy
-    vibrationIntensity: f32,
+    // wavelength of the energy, measured by period- the higher the wavelength, the higher the energy
+    period: f32,
+    // intensity of the energy- measured in amplitude
+    amplitude: f32,
+    // weighted energy to trigger activation energy threshold
+    energyWeight: f32,
 
-    // how can we measure the amount of energy in bytes?
+    // intensity of the energy = amplitude / period
+    // higher energy waves will be more intense, with shorter periods, but higher amplitudes.
 }
 
 /// @notice A single memory
@@ -31,7 +35,14 @@ struct Sense {
 }
 
 impl Sense {
+    /// @notice Senses new information
+    /// @param new Energy- wavelength, vibrationIntensity (vibrationIntensity should probably be the integer that determines the size of the memory)
     fn sense(&self) -> bool {
+        // check if the wavelength and vibrationIntensity matrix (wavelength x vibrationIntensity) is in the memories
+            // if yes, and same number, recall what action to take
+                // check if the vibrationIntensity is greater than the activationThreshold
+            // if not, create new memory and add it to the memories array (add new action to take- how do we decide what action to take?)
+
         true
     }
     fn filter(&self) -> bool {
