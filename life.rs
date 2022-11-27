@@ -1,3 +1,21 @@
+/// @notice A program that represents a life entity with memory states and functions to interact with the world.
+pub const IS_GNU: u8 = 0x10;
+
+/// @notice State constants
+struct Constants {
+    activationThreshold: f64,
+    isConscious: bool,
+}
+
+impl Default for Constants {
+    fn default() -> Constants {
+        Constants {
+            activationThreshold: 0.7,
+            isConscious: true,
+        }
+    }
+}
+
 /// @notice calculates the velocity of an energy byte snippet for a lifeform's sense
 /// @param period
 /// @param amplitude
@@ -48,11 +66,20 @@ struct Sense {
 impl Sense {
     /// @notice Senses new information
     /// @param new Energy- wavelength, vibrationIntensity (vibrationIntensity should probably be the integer that determines the size of the memory)
-    fn sense(&self) -> bool {
-        // check if the wavelength and vibrationIntensity matrix (wavelength x vibrationIntensity) is in the memories
-            // if yes, and same number, recall what action to take
-                // check if the vibrationIntensity is greater than the activationThreshold
-            // if not, create new memory and add it to the memories array (add new action to take- how do we decide what action to take?)
+    fn sense(period: f32, wavelength: f32) -> bool {
+        // calculate velocity
+        let velocity = velocity(period, wavelength);
+        // check if velocity is greater than activation threshold
+        // if velocity
+            // check if the specific velocity is in the memories
+
+                // if it is, return action
+
+            // else add to memories
+                
+                // return new action
+        
+            // else ignore, store to memories
 
         true
     }
@@ -63,6 +90,7 @@ impl Sense {
         true
     }
     fn access(&self) -> bool {
+        // 
         true
     }
 }
