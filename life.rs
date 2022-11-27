@@ -1,4 +1,15 @@
-use bytes::Bytes;
+/// @notice calculates the velocity of an energy byte snippet for a lifeform's sense
+/// @param period
+/// @param amplitude
+/// @returns velocity
+fn velocity(period: f32, wavelength: f32) -> f32 {
+    // unit of time (period) = seconds
+    // velocity (intensity) = frequency * wavelength
+    let frequency = 1.0 / period;
+    let velocity = frequency * wavelength;
+
+    return velocity as f32;
+}
 
 /// @notice Represent energy that triggers action
 // how can we measure the amount of energy in bytes?
@@ -9,16 +20,12 @@ struct Energy {
     amplitude: f32,
     // weighted energy to trigger activation energy threshold
     velocity: f32,
+    // frequency = 1 / seconds (measured in time units (seconds), frequency is measured in hertz (Hz))
     frequency: f32,
+    // wavelength - distance between two consecutive crests or troughs (measured in nano meters (nm))
     wavelength: f32
 
     // ***final number will be a combination of amplitude and velocity
-
-    // unit of time (period) = seconds
-    // frequency = 1 / seconds (measured in time units (seconds), frequency is measured in hertz (Hz))
-    // wavelength - distance between two consecutive crests or troughs (measured in nano meters (nm))
-
-    // velocity (intensity) = frequency * wavelength
 }
 
 /// @notice A single memory
@@ -147,6 +154,7 @@ fn main() {
         sense: Sense {
             memories: Vec::new(),
             amountOfMemory: 0,
+            totalMemorySize: 0,
         },
         catch: Catch {},
         consume: Consume {},
