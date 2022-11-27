@@ -3,29 +3,26 @@
 /// @param amplitude
 /// @returns velocity
 fn velocity(period: f32, wavelength: f32) -> f32 {
-    // unit of time (period) = seconds
-    // velocity (intensity) = frequency * wavelength
+    // frequency = 1 / unit of time (period) in seconds (measured in time units (seconds), frequency is measured in hertz (Hz))
     let frequency = 1.0 / period;
+    // velocity (intensity) = frequency * wavelength
     let velocity = frequency * wavelength;
 
     return velocity as f32;
 }
 
 /// @notice Represent energy that triggers action
+// ***final number will be a combination of amplitude and velocity
 // how can we measure the amount of energy in bytes?
 struct Energy {
     // wavelength of the energy, measured by period- the higher the wavelength, the higher the energy
     period: f32,
     // intensity of the energy- measured in amplitude
     amplitude: f32,
-    // weighted energy to trigger activation energy threshold
-    velocity: f32,
-    // frequency = 1 / seconds (measured in time units (seconds), frequency is measured in hertz (Hz))
-    frequency: f32,
     // wavelength - distance between two consecutive crests or troughs (measured in nano meters (nm))
-    wavelength: f32
-
-    // ***final number will be a combination of amplitude and velocity
+    wavelength: f32,
+    // weighted energy to trigger activation energy threshold
+    velocity: f32
 }
 
 /// @notice A single memory
