@@ -2,6 +2,8 @@
 pub const IS_GNU: u8 = 0x10;
 
 /// @notice State constants
+/// @notice activationThreshold is the activation threshold (energy) required to activate a sense function to check memory or create new response
+/// @notice isConscious is the state of the life entity- needs to be concious to perform actions
 pub struct Constants {
     pub activationThreshold: f32,
     pub isConscious: bool,
