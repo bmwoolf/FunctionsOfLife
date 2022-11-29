@@ -70,15 +70,18 @@ impl Sense {
         // calculate velocity
         let velocity = velocity(period, wavelength);
         // check if velocity is greater than activation threshold
-        // if velocity
+        // if velocity is greater than activation threshold
+        if (velocity > Constants::activationThreshold) {
+            
+        }
             // check if the specific velocity is in the memories
 
                 // if it is, return action
 
             // else add to memories
-                
+
                 // return new action
-        
+
             // else ignore, store to memories
 
         true
