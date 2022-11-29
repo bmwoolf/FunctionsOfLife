@@ -2,16 +2,16 @@
 pub const IS_GNU: u8 = 0x10;
 
 /// @notice State constants
-/// @notice activationThreshold is the activation threshold (energy) required to activate a sense function to check memory or create new response
-/// @notice isConscious is the state of the life entity- needs to be concious to perform actions
+/// @notice activation_threshold is the activation threshold (energy) required to activate a sense function to check memory or create new response
+/// @notice is_conscious is the state of the life entity- needs to be concious to perform actions
 pub struct Constants {
-    pub activationThreshold: f32,
-    pub isConscious: bool,
+    pub activation_threshold: f32,
+    pub is_conscious: bool,
 }
 
-const constantStruct: Constants = Constants {
-    activationThreshold: 0.7,
-    isConscious: true,
+const CONSTANT_STRUCT: Constants = Constants {
+    activation_threshold: 0.7,
+    is_conscious: true,
 };
 
 /// @notice calculates the velocity of an energy byte snippet for a lifeform's sense
@@ -44,11 +44,13 @@ struct Energy {
 /// @notice A single memory
 struct Memory {
     // activation threshold
-    activationThreshold: f32,
+    activation_threshold: f32,
     // voltage
     voltage: f32,
     // size of memory (in bytes)
     size: u64,
+    // response to sense- should this be a function signature?
+    response: fn() -> (), // can do Catch.catch() or Digest.digest()
 }
 
 /// @notice A Sense- should this be broken up in to the different senses? But each sense is just a wavelength
@@ -56,29 +58,33 @@ struct Sense {
     // linked list of memories- or a graph? should be a neural network but this is mvp
     memories: Vec<Memory>, // basically an array of objects
     // size of brain used for memories
-    amountOfMemory: u32,
+    amount_of_memory: u32,
     // total size of memories in bytes
-    totalMemorySize: u32,
+    total_memory_size: u32,
 }
 
 impl Sense {
     /// @notice Senses new information
     /// @param new Energy- wavelength, vibrationIntensity (vibrationIntensity should probably be the integer that determines the size of the memory)
-    fn sense(period: f32, wavelength: f32) -> bool {
+    fn sense(&self, period: f32, wavelength: f32) -> fn {
         // calculate velocity
         let velocity = velocity(period, wavelength);
-        // check if velocity is greater than activation threshold
         // if velocity is greater than activation threshold
-        if velocity > constantStruct.activationThreshold {
-            println!("in here");
+        if velocity > CONSTANT_STRUCT.activation_threshold {
+            // loop through memories and check if specific velocity is in memories
+            for i in &self.memories {
+                // if velocity is in memories
+                if i.activation_threshold == velocity {
+                    // if it is, return action
+                    return i.response;
+                }
+            }
+        } else {
+
         }
-            // check if the specific velocity is in the memories
+            // else create new memory and add to memories vector
 
-                // if it is, return action
-
-            // else add to memories
-
-                // return new action
+                // return new action depending on threshold
 
             // else ignore, store to memories
 
@@ -113,16 +119,16 @@ impl Consume {
 
 struct Digest {}
 impl Digest {
-    fn breakDown(&self) -> bool {
+    fn breakdown(&self) -> bool {
         true
     }
-    fn transportEnergy(&self) -> bool {
+    fn transport_energy(&self) -> bool {
         true
     }
-    fn useEnergy(&self) -> bool {
+    fn use_energy(&self) -> bool {
         true
     }
-    fn storeEnergy(&self) -> bool {
+    fn store_energy(&self) -> bool {
         true
     }
 }
@@ -179,8 +185,8 @@ fn main() {
     let life = Life {
         sense: Sense {
             memories: Vec::new(),
-            amountOfMemory: 0,
-            totalMemorySize: 0,
+            amount_of_memory: 0,
+            total_memory_size: 0,
         },
         catch: Catch {},
         consume: Consume {},
