@@ -2,19 +2,15 @@
 pub const IS_GNU: u8 = 0x10;
 
 /// @notice State constants
-struct Constants {
-    activationThreshold: f64,
-    isConscious: bool,
+pub struct Constants {
+    pub activationThreshold: f32,
+    pub isConscious: bool,
 }
 
-impl Default for Constants {
-    fn default() -> Constants {
-        Constants {
-            activationThreshold: 0.7,
-            isConscious: true,
-        }
-    }
-}
+const constantStruct: Constants = Constants {
+    activationThreshold: 0.7,
+    isConscious: true,
+};
 
 /// @notice calculates the velocity of an energy byte snippet for a lifeform's sense
 /// @param period
@@ -46,9 +42,9 @@ struct Energy {
 /// @notice A single memory
 struct Memory {
     // activation threshold
-    activationThreshold: f64,
+    activationThreshold: f32,
     // voltage
-    voltage: f64,
+    voltage: f32,
     // size of memory (in bytes)
     size: u64,
 }
@@ -71,8 +67,8 @@ impl Sense {
         let velocity = velocity(period, wavelength);
         // check if velocity is greater than activation threshold
         // if velocity is greater than activation threshold
-        if (velocity > Constants::activationThreshold) {
-            
+        if velocity > constantStruct.activationThreshold {
+            println!("in here");
         }
             // check if the specific velocity is in the memories
 
