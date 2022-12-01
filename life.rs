@@ -42,6 +42,7 @@ struct Energy {
 }
 
 /// @notice A single memory
+/// @notice replace with a hashmap?
 struct Memory {
     // activation threshold
     activation_threshold: f32,
@@ -66,9 +67,9 @@ struct Sense {
 impl Sense {
     /// @notice Senses new information
     /// @param new Energy- wavelength, vibrationIntensity (vibrationIntensity should probably be the integer that determines the size of the memory)
-    fn sense(&self, period: f32, wavelength: f32) -> fn {
+    fn sense(&self, period: f32, wavelength: f32) -> () {
         // calculate velocity
-        let velocity = velocity(period, wavelength);
+        let velocity = calculate_velocity(period, wavelength);
         // if velocity is greater than activation threshold
         if velocity > CONSTANT_STRUCT.activation_threshold {
             // loop through memories and check if specific velocity is in memories
@@ -76,20 +77,21 @@ impl Sense {
                 // if velocity is in memories
                 if i.activation_threshold == velocity {
                     // if it is, return action
-                    return i.response;
+                    return (i.response)();
                 }
             }
         } else {
-
-        }
             // else create new memory and add to memories vector
+            
+            // return new action depending on threshold
+        }
 
-                // return new action depending on threshold
 
             // else ignore, store to memories
 
-        true
+        ()
     }
+    
     fn filter(&self) -> bool {
         true
     }
@@ -185,8 +187,8 @@ fn main() {
     let life = Life {
         sense: Sense {
             memories: Vec::new(),
-            amount_of_memory: 0,
-            total_memory_size: 0,
+            memory_capacity: 0,
+            used_memory: 0,
         },
         catch: Catch {},
         consume: Consume {},
