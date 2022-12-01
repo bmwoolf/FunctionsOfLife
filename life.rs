@@ -18,7 +18,7 @@ const CONSTANT_STRUCT: Constants = Constants {
 /// @param period
 /// @param amplitude
 /// @returns velocity
-fn velocity(period: f32, wavelength: f32) -> f32 {
+fn calculate_velocity(period: f32, wavelength: f32) -> f32 {
     // frequency = 1 / unit of time (period) in seconds (measured in time units (seconds), frequency is measured in hertz (Hz))
     let frequency = 1.0 / period;
     // velocity (intensity) = frequency * wavelength
@@ -55,12 +55,12 @@ struct Memory {
 
 /// @notice A Sense- should this be broken up in to the different senses? But each sense is just a wavelength
 struct Sense {
-    // linked list of memories- or a graph? should be a neural network but this is mvp
+    // move to neural network
     memories: Vec<Memory>, // basically an array of objects
     // size of brain used for memories
-    amount_of_memory: u32,
+    memory_capacity: u32,
     // total size of memories in bytes
-    total_memory_size: u32,
+    used_memory: u32,
 }
 
 impl Sense {
